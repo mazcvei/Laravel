@@ -11,7 +11,8 @@ class BlogController extends Controller
     }
 
     public function show(){
-        $titulo="Titulo post";
+
+        return view('formulario')->with(['datos'=>"Este es el titulo"]);
     }
 }
 

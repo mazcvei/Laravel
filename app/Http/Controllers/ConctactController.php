@@ -10,4 +10,7 @@ class ConctactController extends Controller
 
         return view('formulario');
     }
+    public function gets(){
+
+    }
 }
