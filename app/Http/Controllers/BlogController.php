@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        return view('entradas')->with(['titulo' => "Listado de entradas"]);
 
     }
+    public function get(Request $request){
 
-    public function show(){
+            $datos=$request->only('name','surname','age');
+            return view('datos',['datos'=>$datos]);
+    }
 
-        return view('formulario')->with(['datos'=>"Este es el titulo"]);
+    public function show()
+    {
+
     }
 }
 

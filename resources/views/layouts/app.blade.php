@@ -56,7 +56,7 @@
                         @yield('content')
                     </div>
                     <div class="col-md-4">
-                        @component('components.sidebar', ['nombreBlog'=>'atSistemas Blog'])
+                        @component('components.sidebar', ['nombreBlog'=>'Mazcvei Blog'])
                         @endcomponent
                     </div>
                 </div>

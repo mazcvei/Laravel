@@ -11,6 +11,8 @@ class ConctactController extends Controller
         return view('formulario');
     }
     public function gets(){
+        //recoger datos del formulario
 
+        return view('entry');
     }
 }

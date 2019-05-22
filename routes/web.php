@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/formulario', 'ConctactController@index')->name('formulario');
 Route::get('/formulario_titulo', 'BlogController@show')->name('formulario_titulos');
 
-Route::get('/entradas', 'ConctactController@show')->name('entradas');
-Route::post('/contacto', 'ConctactController@index')->name('contacto');
-Route::post('/contacto', 'ConctactController@index')->name('contacto');
+Route::get('/show_all', 'BlogController@index')->name('show_all');
+Route::get('/contacto', 'ConctactController@index')->name('contacto');
+
+Route::post('/sendForm', 'BlogController@get')->name('sendForm');
