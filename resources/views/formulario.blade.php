@@ -2,15 +2,17 @@
 
 @section('content')
 
-    <h2>Formulario</h2>
-<p>Aqui va el formulario del blog</p>
-    <form action="{{route('sendForm')}}" method="post">
+    <h2>Nuevo post</h2>
+
+    <form action="{{route('sendPost')}}" method="post">
         @csrf
-       <label>Nombre:</label></lavel> <input type="text" name="name" required><br>
-        <label>Apellidos:</label></lavel> <input type="text" name="surname" required><br>
-        <label>Edad:</label></lavel> <input type="number" name="age" required><br>
-        <textarea name="text" cols="20" rows="10"></textarea><br>
+        <label>Titulo</label></lavel><br>
+        <input type="text" name="title" required><br>
+        <label>Mensaje</label><br>
+        <textarea name="text" cols="80" rows="10"></textarea><br>
         <input type="submit" name="send" value="Enviar">
 
     </form>
+    <a href="{{route('show_all.index')}}" class="btn-primary w-25">Atras</a>
+
 @endsection

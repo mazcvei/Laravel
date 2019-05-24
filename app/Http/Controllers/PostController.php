@@ -18,7 +18,7 @@ class PostController extends Controller
 
         $num=$posts->count();
 
-        return view('entradas')->with(['titulo' => "Listado de entradas",'posts'=>$posts,'num'=>$num]);
+        return view('entradas')->with(['titulo' => "Listado de posts",'posts'=>$posts,'num'=>$num]);
 
     }
 
@@ -40,7 +40,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $post=new Post;
+        $post->title=$request->title;
+        $post->article=$request->text;
+        $post->save();
+        echo "Datos guardados";
+
     }
 
     /**
@@ -49,9 +56,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($post)
     {
-        //
+        $AllPost=Post::where('id',$post)->get();
+        return view('post')->with(['posts'=>$AllPost]);
+
     }
 
     /**

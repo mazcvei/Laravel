@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/formulario', 'ConctactController@index')->name('formulario');
+Route::get('/newpost', 'ConctactController@index')->name('newPost');
 Route::get('/formulario_titulo', 'BlogController@show')->name('formulario_titulos');
 
 Route::resource('/show_all', 'PostController');
 Route::get('/contacto', 'ConctactController@index')->name('contacto');
 
-Route::post('/sendForm', 'BlogController@get')->name('sendForm');
+Route::post('/sendForm', 'PostController@store')->name('sendPost');
+Route::get('/showpost{id}', 'PostController@show')->name('showPost');
