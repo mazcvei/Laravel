@@ -16,7 +16,9 @@ class PostController extends Controller
     {
         $posts=Post::all();
 
-        return view('entradas')->with(['titulo' => "Listado de entradas"])->with(['posts'=>$posts]);
+        $num=$posts->count();
+
+        return view('entradas')->with(['titulo' => "Listado de entradas",'posts'=>$posts,'num'=>$num]);
 
     }
 
