@@ -46,6 +46,8 @@ class PostController extends Controller
         $post->title=$request->title;
         $post->article=$request->text;
         $post->save();
+        //redirect a todos los posts ¿Como se hace?
+        return redirect('/show_all');
         echo "Datos guardados";
 
     }
@@ -69,9 +71,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($postId)
     {
-        //
+        $post=Post::where('id',$postId)->get();
+        return view('formularioEdit')->with(['postEdit'=>$post]);
     }
 
     /**
@@ -81,9 +84,17 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request/*,$id*/)
     {
-        //
+//¿Es mejor recibir el id como parametro desde la vista o a traves del Request?
+       // $postUpdate = Post::where($id)->firstOrFail();
+        $postUpdate=Post::find($request->id);
+        $postUpdate->title=$request->title;
+        $postUpdate->article=$request->text;
+        $postUpdate->save();
+        //redirect a todos los posts ¿Como se hace?
+        return redirect('/show_all');
+
     }
 
     /**
@@ -92,8 +103,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $post=Post::findOrFail($id);
+        $post->delete();
+
+        return redirect('/show_all');
     }
 }

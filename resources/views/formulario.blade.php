@@ -9,7 +9,7 @@
         <label>Titulo</label></lavel><br>
         <input type="text" name="title" required><br>
         <label>Mensaje</label><br>
-        <textarea name="text" cols="80" rows="10"></textarea><br>
+        <textarea name="text" cols="80" rows="10" required></textarea><br>
         <input type="submit" name="send" value="Enviar">
 
     </form>

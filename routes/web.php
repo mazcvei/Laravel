@@ -15,8 +15,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/newpost', 'ConctactController@index')->name('newPost');
 Route::get('/formulario_titulo', 'BlogController@show')->name('formulario_titulos');
 
-Route::resource('/show_all', 'PostController');
 Route::get('/contacto', 'ConctactController@index')->name('contacto');
 
+Route::resource('/show_all', 'PostController');
 Route::post('/sendForm', 'PostController@store')->name('sendPost');
 Route::get('/showpost{id}', 'PostController@show')->name('showPost');
+Route::get('/deletePost{id}','PostController@destroy')->name('deletePost');
+Route::get('/editPost{id}','PostController@edit')->name('editPost');
+Route::post('/updatepost{id}','PostController@update')->name('updatePost');
