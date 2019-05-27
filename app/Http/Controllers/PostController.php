@@ -18,7 +18,7 @@ class PostController extends Controller
 
         $num=$posts->count();
 
-        return view('entradas')->with(['titulo' => "Listado de posts",'posts'=>$posts,'num'=>$num]);
+        return view('posts/posts')->with(['titulo' => "Listado de posts",'posts'=>$posts,'num'=>$num]);
 
     }
 
@@ -29,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-
+        return view('posts/newpost')->with(['titulo' => "Nuevo posts"]);
     }
 
     /**
@@ -40,15 +40,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $post=new Post;
         $post->title=$request->title;
         $post->article=$request->text;
         $post->save();
-        //redirect a todos los posts ¿Como se hace?
-        return redirect('/show_all');
-        echo "Datos guardados";
+
+        return redirect('/show_all'); //rutas ?¿?
 
     }
 
@@ -61,7 +58,7 @@ class PostController extends Controller
     public function show($post)
     {
         $AllPost=Post::where('id',$post)->get();
-        return view('post')->with(['posts'=>$AllPost]);
+        return view('posts/post')->with(['posts'=>$AllPost]);
 
     }
 
@@ -74,7 +71,7 @@ class PostController extends Controller
     public function edit($postId)
     {
         $post=Post::where('id',$postId)->get();
-        return view('formularioEdit')->with(['postEdit'=>$post]);
+        return view('posts/postedit')->with(['postEdit'=>$post]);
     }
 
     /**
@@ -107,7 +104,6 @@ class PostController extends Controller
     {
         $post=Post::findOrFail($id);
         $post->delete();
-
         return redirect('/show_all');
     }
 }
