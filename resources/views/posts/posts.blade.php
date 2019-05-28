@@ -19,6 +19,7 @@
             <form method="any" action="{{route('showPost',$post->id)}}">
                 <button type="submit" class="alert-danger">Ver</button>
             </form>
+
     @endforeach
 
 

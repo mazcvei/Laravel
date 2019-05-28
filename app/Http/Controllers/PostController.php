@@ -89,7 +89,7 @@ class PostController extends Controller
         $postUpdate->title=$request->title;
         $postUpdate->article=$request->text;
         $postUpdate->save();
-        //redirect a todos los posts ¿Como se hace?
+
         return redirect('/show_all');
 
     }
