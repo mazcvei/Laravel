@@ -13,10 +13,10 @@ class Comment extends Model
         return $this->belongaTo('App\Post');
     }
     public function commentsChild(){
-        return $this->hasMany('App/Comment');
+        return $this->hasMany('App\Comment');
     }
     public function commentsParent(){
-        return $this->belongsTo('App/Comment');
+        return $this->belongsTo('App\Comment');
     }
 
 }

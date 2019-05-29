@@ -4,7 +4,7 @@
     <h2>{{$titulo}}</h2>
     <form method="any" action="{{route('newPost')}}">
         <button type="submit" class="alert-primary">Nueva entrada</button>
-    </form>
+    </form>{{$posts->render()}}
     <p>Hay {{$num}} entrada(s)</p>
     @if($num==0)
         <p>Todavía no se ha escrito nada, sé el primero en compartir noticias</p>
@@ -21,7 +21,7 @@
             </form>
 
     @endforeach
-
+{{$posts->render()}}
 
 
 

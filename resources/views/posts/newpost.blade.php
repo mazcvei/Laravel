@@ -10,9 +10,9 @@
         <input type="text" name="title" required><br>
         <label>Mensaje</label><br>
         <textarea name="text" cols="80" rows="10" required></textarea><br>
-        <input type="submit" name="send" value="Enviar">
-
+        <input type="button" name="back" href="{{'show_all.index'}}" value="Volver">
+        <input type="submit" class="btn btn-success" name="send" value="Enviar">
+        <input type="reset" class="btn btn-danger" name="reset" value="Borrar">
     </form>
-    <a href="{{route('show_all.index')}}" class="btn-primary w-25">Atras</a>
 
 @endsection

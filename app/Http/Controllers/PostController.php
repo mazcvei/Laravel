@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -14,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+       // $posts = DB::table('posts')->paginate(2); //Facades
+        $posts=Post::paginate(2); //version Eloquebnt
 
         $num=$posts->count();
 

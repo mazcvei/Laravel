@@ -15,10 +15,21 @@ class CheckAge
      */
     public function handle($request, Closure $next)
     {
-        if(($request->age)==null){
+       // dd("Valor sesion: ".$request->session()->get('age')." Valor request: ".$request->age);
+
+        if($request->age==null && session('age')==null){
+            // dd("Valor sesion: ".$request->session()->get('age')." Valor request: ".$request->age);
+
             return redirect()->route('check');
-        }else if(($request->age)<18){
-            return redirect('/');
+
+        }else{
+           // dd("Valor sesion: ".$request->session()->get('age')." Valor request: ".$request->age);
+
+            if(session('age')<18){
+                return redirect('/');
+
+            }
+
         }
         return $next($request);
     }

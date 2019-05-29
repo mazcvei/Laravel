@@ -7,3 +7,6 @@
 <li class="nav-item">
     <a class="nav-link" href="{{ route('adult') }}">Adultos</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('finishsession') }}">Borrar sesion</a>
+</li>
